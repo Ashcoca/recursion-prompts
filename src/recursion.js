@@ -235,8 +235,11 @@ var replaceKeysInObj = function(obj, oldKey, newKey) {
 // Example: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34.....
 // fibonacci(5); // [0,1,1,2,3,5]
 // Note: The 0 is not counted.
-var fibonacci = function(n) {
+// return n === 0 ? 0 : n === 1 ? 1 : fibonacci(n - 1) + fibonacci(n - 2);
+var fibonacci = function(n){
+  return n < 0 ? null : n === 0 ? 0 : n === 1 ? 1 : fibonacci(n - 1) + fibonacci(n -2);
 };
+
 
 // 26. Return the Fibonacci number located at index n of the Fibonacci sequence.
 // [0,1,1,2,3,5,8,13,21]
@@ -260,7 +263,6 @@ var capitalizeFirst = function(array) {
     return this.charAt(0).toUpperCase() + this.slice(1);
   }
   return !array.length ? [] : [(array[0]).capitalize()].concat(capitalizeFirst(array.slice(1)));
-
 };
 
 // 29. Return the sum of all even numbers in an object containing nested objects.
