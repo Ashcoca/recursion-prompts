@@ -88,15 +88,16 @@ var palindrome = function(string) {
 // modulo(17,5) // 2
 // modulo(22,6) // 4
 var modulo = function(x, y) {
-  return y === 0 ? NaN : x === y ? 0 : x < 0 ? -modulo(-x, y) : y < 0 ? modulo(x, -y) : y < x ? modulo(x-y, y) : x;
+  return y === 0 ? NaN : x === y ? 0 : x < 0 ? -modulo(-x, y) : y < 0 ? modulo(x, -y) : y < x ? modulo(x - y, y) : x;
 };
 
-// te a function that multiplies two numbers without using the * operator or
+// 12. Write a function that multiplies two numbers without using the * operator or
 // Math methods.
 var multiply = function(x, y) {
+  return x < y ? multiply(y, x) : y !== 0 ? x + multiply(x, y- 1) : 0;
 };
 
-// 13. Write a function that divides two numbers without using the / operator or
+//  Write a function that divides two numbers without using the / operator or
 // Math methods to arrive at an approximate quotient (ignore decimal endings).
 var divide = function(x, y) {
 };
