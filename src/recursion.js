@@ -192,8 +192,24 @@ var countOccurrence = function(array, value) {
 
 // 21. Write a recursive version of map.
 // rMap([1,2,3], timesTwo); // [2,4,6]
-var rMap = function(array, callback) {
+// Call map() using the array [ ‘a’, ‘b’, ‘c’ ]
+// Create a new array that holds the result of calling fn(‘a’)
+// Return [ ‘A’ ].concat( map([ ‘b’, ‘c’ ]) )
+// Repeat steps 1 through 3 with [ ‘b’, ‘c’ ]
+// Repeat steps 1 through 3 for [ ‘c’ ]
+// Eventually, we call map() with an empty array, which ends the recursion.
+
+var rMap= function(array, callback) {
+  return !array.length ? [] : [callback(array[0])].concat(rMap(array.slice(1), callback));
 };
+
+// var rMap = function(array, callback) {
+//   if (!array.length) {
+//     return array;
+//   }
+//   var result = callback(array.unshift());
+//   return [result].concat(rMap(array, callback));
+// };
 
 // 22. Write a function that counts the number of times a key occurs in an object.
 // var obj = {'e':{'x':'y'},'t':{'r':{'e':'r'},'p':{'y':'r'}},'y':'e'};
@@ -234,6 +250,7 @@ var nthFibo = function(n) {
 // var words = ['i', 'am', 'learning', 'recursion'];
 // capitalizedWords(words); // ['I', 'AM', 'LEARNING', 'RECURSION']
 var capitalizeWords = function(array) {
+  return !array.length ? [] : [(array[0]).toUpperCase()].concat(capitalizeWords(array.slice(1)));
 };
 
 // 28. Given an array of strings, capitalize the first letter of each index.
