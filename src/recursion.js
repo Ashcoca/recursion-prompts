@@ -94,12 +94,23 @@ var modulo = function(x, y) {
 // 12. Write a function that multiplies two numbers without using the * operator or
 // Math methods.
 var multiply = function(x, y) {
-  return x < y ? multiply(y, x) : y !== 0 ? x + multiply(x, y- 1) : 0;
+  return x < y ? multiply(y, x) : y < 0 ? -multiply(x, -y) : y !== 0 ? x + multiply(x, y - 1) : 0;
 };
 
-//  Write a function that divides two numbers without using the / operator or
+// 13. Write a function that divides two numbers without using the / operator or
 // Math methods to arrive at an approximate quotient (ignore decimal endings).
 var divide = function(x, y) {
+  if (x < 0 && y > 0 && -x < y || x < -y) { return 0; }
+  if (x > 0 && y > 0 && x < y) { return 0; }
+  if (y === 0) { return NaN; }
+  if (x === 0) { return 0; }
+  else if (x < y) {
+    return 0;
+  } else if (y < 0 || x < 0) {
+    return -1 + (divide(x + y, y));
+  } else {
+    return 1 + divide(x - y, y)
+  }
 };
 
 // 14. Find the greatest common divisor (gcd) of two positive numbers. The GCD of two
