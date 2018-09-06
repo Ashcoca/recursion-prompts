@@ -262,10 +262,10 @@ var nestedEvenSum = function(obj) {
   for (var key in obj) {
     // base case: if obj[key] % 2 === 0, then sum += 1
     if (obj[key] % 2 === 0) {
-      sum += 1;
+      sum += obj[key];
     }
     if (typeof obj[key] === "object") {
-      nestedEvenSum(obj[key]);
+      sum += nestedEvenSum(obj[key]);
     }
     // recursive case: if obj[key] is an object, then nestedEvenSum(obj[key])
   }
